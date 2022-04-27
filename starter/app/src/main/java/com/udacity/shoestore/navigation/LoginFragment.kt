@@ -1,6 +1,7 @@
 package com.udacity.shoestore.navigation
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +24,11 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         binding.loginButton.setOnClickListener {
-            loadWelcome(false)
+            if (validateInput()) {
+                loadWelcome(false)
+            }
         }
+
         binding.createAccountButton.setOnClickListener {
             loadWelcome(true)
         }
@@ -36,5 +40,16 @@ class LoginFragment : Fragment() {
         val action = LoginFragmentDirections.loadWelcome("email", "authToken")
         action.newAccount = newAccount
         findNavController().navigate(action)
+    }
+
+    private fun validateInput(): Boolean {
+        val email = binding.emailEditText.text
+        val valid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        if (valid) {
+            binding.emailEditText.error = null
+        } else {
+            binding.emailEditText.error = getString(R.string.invalid_email)
+        }
+        return valid
     }
 }

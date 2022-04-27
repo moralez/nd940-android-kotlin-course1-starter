@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment: Fragment() {
@@ -20,13 +22,20 @@ class WelcomeFragment: Fragment() {
 
         val args = WelcomeFragmentArgs.fromBundle(requireArguments())
 
-        val welcomeText = if (args.newAccount) {
-            "Welcome ${args.email}"
-        } else {
-            "Welcome back ${args.email}"
+        binding.welcomeTitle.text = when {
+            args.newAccount -> getString(R.string.initial_welcome, args.email)
+            else -> getString(R.string.return_welcome, args.email)
         }
-        binding.introTitle.text = welcomeText
+
+        binding.enterButton.setOnClickListener {
+            loadInstructions()
+        }
 
         return binding.root
+    }
+
+    private fun loadInstructions() {
+        val action = WelcomeFragmentDirections.loadInstructions()
+        findNavController().navigate(action)
     }
 }

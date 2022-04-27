@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+
+    <!-- Log In Screen -->
     <string name="email">E-Mail</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="create_account">Create Account</string>
     <string name="existing_account">Existing Account</string>
+    <string name="invalid_email">Invalid E-Mail</string>
+
+    <!-- Welcome Screen -->
+    <string name="initial_welcome">Welcome %s</string>
+    <string name="return_welcome">Welcome Back %s</string>
+    <string name="start">Start</string>
+
+    <!-- Instructions Screen -->
+    <string name="introduction_title">Welcome to Shoe Inventory</string>
+    <string name="introduction_subtitle">Please enjoy your stay</string>
 </resources>

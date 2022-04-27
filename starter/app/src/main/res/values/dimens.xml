@@ -2,6 +2,8 @@
 <resources>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_64">64dp</dimen>
 
     <dimen name="min_item_height">48dp</dimen>
 </resources>

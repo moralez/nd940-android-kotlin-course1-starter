@@ -32,6 +32,24 @@
             android:name="newAccount"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/loadInstructions"
+            app:destination="@id/instructionFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.navigation.InstructionFragment"
+        android:label="InstructionFragment"
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/loadShoeList"
+            app:destination="@id/shoeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.udacity.shoestore.navigation.ShoeListFragment"
+        android:label="ShoeListFragment"
+        tools:layout="@layout/fragment_shoe_list" />
 
 </navigation>
