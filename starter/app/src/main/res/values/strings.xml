@@ -17,4 +17,7 @@
     <!-- Instructions Screen -->
     <string name="introduction_title">Welcome to Shoe Inventory</string>
     <string name="introduction_subtitle">Please enjoy your stay</string>
+
+    <!-- Shoe List Screen -->
+    <string name="add_new_item">Add new shoe item</string>
 </resources>
