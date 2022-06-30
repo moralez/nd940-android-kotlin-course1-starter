@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">Shoe Store</string>
 
     <!-- Log In Screen -->
     <string name="email">E-Mail</string>
@@ -8,6 +8,8 @@
     <string name="create_account">Create Account</string>
     <string name="existing_account">Existing Account</string>
     <string name="invalid_email">Invalid E-Mail</string>
+    <string name="invalid_password">Invalid Password</string>
+    <string name="logo_content_description">Logo</string>
 
     <!-- Welcome Screen -->
     <string name="initial_welcome">Welcome %s</string>

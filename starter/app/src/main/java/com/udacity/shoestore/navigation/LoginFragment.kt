@@ -44,12 +44,18 @@ class LoginFragment : Fragment() {
 
     private fun validateInput(): Boolean {
         val email = binding.emailEditText.text
-        val valid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        if (valid) {
+        val validEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        val validPassword = binding.passwordEditText.text.isNotEmpty()
+        if (validEmail) {
             binding.emailEditText.error = null
         } else {
             binding.emailEditText.error = getString(R.string.invalid_email)
         }
-        return valid
+        if (validPassword) {
+            binding.passwordEditText.error = null
+        } else {
+            binding.passwordEditText.error = getString(R.string.invalid_password)
+        }
+        return validEmail && validPassword
     }
 }
