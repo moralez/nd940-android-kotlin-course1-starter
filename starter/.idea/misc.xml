@@ -8,9 +8,11 @@
         <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/fragment_instruction.xml" value="0.1" />
         <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/fragment_login.xml" value="0.20522388059701493" />
+        <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/fragment_shoe_detail.xml" value="0.2" />
         <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/fragment_shoe_list.xml" value="0.4" />
         <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
-        <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/shoe_item.xml" value="0.12360688956433637" />
+        <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/layout/shoe_item.xml" value="0.1" />
+        <entry key="..\:/workspace/udacity/project-one/starter/app/src/main/res/menu/shoe_details_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -8,28 +8,38 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.models.Shoe
 
 class ShoeListAdapter(
-    private val shoes: LiveData<MutableList<Shoe>>
+    val shoes: LiveData<MutableList<Shoe>>,
+    private val shoeSelected: (shoe: Shoe) -> Unit
 ): RecyclerView.Adapter<ShoeListAdapter.ShoeItemView>() {
 
+    private lateinit var binding: ShoeItemBinding
+
+    init {
+        setHasStableIds(true)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeItemView {
-        val context = parent.context
-        val view = LayoutInflater.from(context).inflate(R.layout.shoe_item, parent, false)
-        return ShoeItemView(view)
+        binding = ShoeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ShoeItemView(binding.root)
     }
 
     override fun onBindViewHolder(holder: ShoeItemView, position: Int) {
-        holder.name.text = shoes.value.orEmpty()[position].name
+        val shoe = shoes.value.orEmpty()[position]
+        holder.name.text = shoe.name
     }
 
     override fun getItemCount(): Int = shoes.value.orEmpty().size
 
-    class ShoeItemView(
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    inner class ShoeItemView(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val name: TextView = itemView.findViewById(R.id.shoeName)
+        val name: TextView = itemView.findViewById(R.id.shoeMake)
 
         init {
             itemView.setOnClickListener(this)
@@ -39,6 +49,9 @@ class ShoeListAdapter(
             Snackbar.make(view, "Selected Shoe", Snackbar.LENGTH_SHORT)
                 .setAction("Action", null)
                 .show()
+            shoes.value?.get(bindingAdapterPosition)?.let {
+                shoeSelected(it)
+            }
         }
     }
 }

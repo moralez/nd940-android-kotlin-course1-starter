@@ -22,4 +22,8 @@
 
     <!-- Shoe List Screen -->
     <string name="add_new_item">Add new shoe item</string>
+
+    <!-- Shoe Entry Screen -->
+    <string name="name_label">Name</string>
+    <string name="menu_save">Save</string>
 </resources>

@@ -37,7 +37,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun loadWelcome(newAccount: Boolean) {
-        val action = LoginFragmentDirections.loadWelcome("email", "authToken")
+        val email = binding.emailEditText.text.toString()
+        val action = LoginFragmentDirections.loadWelcome(email, "authToken")
         action.newAccount = newAccount
         findNavController().navigate(action)
     }
