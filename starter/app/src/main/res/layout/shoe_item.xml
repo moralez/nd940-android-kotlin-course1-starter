@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/dp_16">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/shoeMake"
-        android:layout_width="wrap_content"
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+        <variable
+            name="selectionListener"
+            type="com.udacity.shoestore.items.ShoeSelectedListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Shoe Name"/>
+        android:onClick="@{() -> selectionListener.shoeSelected(shoe)}"
+        android:padding="@dimen/dp_16">
 
-    <TextView
-        android:id="@+id/shoeModel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Shoe Name"/>
+        <TextView
+            android:id="@+id/shoeCompany"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Shoe Company"
+            style="@style/ShoeCompany" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/shoeName"
+            android:layout_marginTop="@dimen/dp_4"
+            app:layout_constraintTop_toBottomOf="@id/shoeCompany"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Shoe Name"
+            style="@style/ShoeName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

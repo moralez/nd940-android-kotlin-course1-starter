@@ -1,23 +1,18 @@
 package com.udacity.shoestore.navigation
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.*
-import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeListViewModel
-import timber.log.Timber
 import java.util.*
 
 class ShoeDetailFragment: Fragment() {
@@ -32,11 +27,6 @@ class ShoeDetailFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-
-        val args = ShoeDetailFragmentArgs.fromBundle(requireArguments())
-        Timber.tag("jmo").d("Args: $args")
-        Timber.tag("jmo").d("Args: ${args.shoe}")
-
         return binding.root
     }
 
@@ -48,6 +38,17 @@ class ShoeDetailFragment: Fragment() {
             viewLifecycleOwner,
             Lifecycle.State.RESUMED
         )
+
+        bindShoe()
+
+    }
+
+    private fun bindShoe() {
+        val args = ShoeDetailFragmentArgs.fromBundle(requireArguments())
+        val shoe: Shoe? = args.shoe
+
+        binding.nameEntry.text = Editable.Factory.getInstance().newEditable(shoe?.name.orEmpty())
+        binding.companyEntry.text = Editable.Factory.getInstance().newEditable(shoe?.company.orEmpty())
     }
 
     private fun save() {
@@ -57,7 +58,6 @@ class ShoeDetailFragment: Fragment() {
                 size = 9.5,
                 company = "Nike",
                 description = "Sick stuff",
-                images = emptyList(),
                 dateAdded = Date()
             )
         )

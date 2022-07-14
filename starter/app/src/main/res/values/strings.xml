@@ -25,5 +25,8 @@
 
     <!-- Shoe Entry Screen -->
     <string name="name_label">Name</string>
+    <string name="company_label">Company</string>
+    <string name="shoe_size_label">Shoe Size</string>
+    <string name="description_label">Description</string>
     <string name="menu_save">Save</string>
 </resources>

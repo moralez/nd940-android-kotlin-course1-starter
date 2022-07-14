@@ -16,4 +16,21 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ShoeItemText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ShoeName" parent="ShoeItemText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/shoe_model_size</item>
+    </style>
+
+    <style name="ShoeCompany" parent="ShoeItemText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/shoe_make_size</item>
+    </style>
+
 </resources>

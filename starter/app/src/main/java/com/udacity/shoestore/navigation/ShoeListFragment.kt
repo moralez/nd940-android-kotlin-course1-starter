@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.items.ShoeListAdapter
+import com.udacity.shoestore.items.ShoeSelectedListener
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeListViewModel
 import timber.log.Timber
@@ -32,15 +33,6 @@ class ShoeListFragment: Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
         binding.fab.setOnClickListener { _ ->
-//            viewModel.addShoe(
-//                Shoe(
-//                    name = "Air Zoom",
-//                    size = 9.5,
-//                    company = "Nike",
-//                    description = "Sick stuff",
-//                    images = emptyList()
-//                )
-//            )
             loadShoeDetails()
         }
 
@@ -49,10 +41,12 @@ class ShoeListFragment: Fragment() {
         }
 
         linearLayoutManager = LinearLayoutManager(requireContext())
-        adapter = ShoeListAdapter(viewModel.shoes) {
-            Timber.tag("jmo").d("Selected Shoe: ${it.name} ${it.dateAdded}")
-            loadShoeDetails(it)
-        }
+        adapter = ShoeListAdapter(viewModel.shoes, object : ShoeSelectedListener {
+            override fun shoeSelected(shoe: Shoe) {
+                Timber.tag("jmo").d("Selected Shoe: ${shoe.name} ${shoe.dateAdded}")
+                loadShoeDetails(shoe)
+            }
+        })
         binding.shoeListView.layoutManager = linearLayoutManager
         binding.shoeListView.adapter = adapter
 

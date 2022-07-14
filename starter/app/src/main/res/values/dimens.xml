@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_32">32dp</dimen>
     <dimen name="dp_64">64dp</dimen>
 
     <dimen name="min_item_height">48dp</dimen>
+    <dimen name="min_label_width">72dp</dimen>
 
     <dimen name="logo_width">240dp</dimen>
     <dimen name="logo_height">120dp</dimen>
+
+    <dimen name="shoe_make_size">12sp</dimen>
+    <dimen name="shoe_model_size">16sp</dimen>
 </resources>

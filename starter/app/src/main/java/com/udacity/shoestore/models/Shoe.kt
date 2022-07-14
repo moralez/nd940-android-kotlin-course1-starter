@@ -10,7 +10,6 @@ data class Shoe(
     var size: Double,
     var company: String,
     var description: String,
-    val images: List<String> = mutableListOf(),
     val dateAdded: Date
 ) : Parcelable {
     override fun hashCode(): Int {
@@ -27,7 +26,6 @@ data class Shoe(
         if (size != other.size) return false
         if (company != other.company) return false
         if (description != other.description) return false
-        if (images != other.images) return false
         if (dateAdded != other.dateAdded) return false
 
         return true

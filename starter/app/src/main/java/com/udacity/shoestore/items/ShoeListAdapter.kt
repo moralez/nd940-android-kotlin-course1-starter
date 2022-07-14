@@ -6,14 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.models.Shoe
 
 class ShoeListAdapter(
     val shoes: LiveData<MutableList<Shoe>>,
-    private val shoeSelected: (shoe: Shoe) -> Unit
+    private val selectionListener: ShoeSelectedListener
 ): RecyclerView.Adapter<ShoeListAdapter.ShoeItemView>() {
 
     private lateinit var binding: ShoeItemBinding
@@ -29,7 +28,11 @@ class ShoeListAdapter(
 
     override fun onBindViewHolder(holder: ShoeItemView, position: Int) {
         val shoe = shoes.value.orEmpty()[position]
-        holder.name.text = shoe.name
+        holder.company.text = shoe.name
+        holder.name.text = shoe.company
+
+        binding.shoe = shoe
+        binding.selectionListener = selectionListener
     }
 
     override fun getItemCount(): Int = shoes.value.orEmpty().size
@@ -38,20 +41,8 @@ class ShoeListAdapter(
 
     inner class ShoeItemView(
         itemView: View
-    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val name: TextView = itemView.findViewById(R.id.shoeMake)
-
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(view: View) {
-            Snackbar.make(view, "Selected Shoe", Snackbar.LENGTH_SHORT)
-                .setAction("Action", null)
-                .show()
-            shoes.value?.get(bindingAdapterPosition)?.let {
-                shoeSelected(it)
-            }
-        }
+    ) : RecyclerView.ViewHolder(itemView) {
+        val company: TextView = itemView.findViewById(R.id.shoeCompany)
+        val name: TextView = itemView.findViewById(R.id.shoeName)
     }
 }

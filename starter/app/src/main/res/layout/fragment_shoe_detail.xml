@@ -19,23 +19,93 @@
             android:id="@+id/nameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/nameEntry"
+            android:minWidth="@dimen/min_label_width"
             android:labelFor="@id/nameEntry"
             android:text="@string/name_label"
-            tools:text="Name" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/nameEntry" />
 
         <EditText
             android:id="@+id/nameEntry"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
+            android:minHeight="@dimen/min_item_height"
             android:importantForAutofill="no"
             android:inputType="text"
-            app:layout_constraintStart_toEndOf="@id/nameLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/nameLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Zoom Air Max" />
 
+        <TextView
+            android:id="@+id/companyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_label_width"
+            android:text="@string/company_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/companyEntry" />
+
+        <EditText
+            android:id="@+id/companyEntry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:minHeight="@dimen/min_item_height"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/companyLabel"
+            app:layout_constraintTop_toBottomOf="@id/nameEntry"
+            tools:text="Nike" />
+
+        <TextView
+            android:id="@+id/sizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_label_width"
+            android:text="@string/shoe_size_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/sizeEntry" />
+
+        <EditText
+            android:id="@+id/sizeEntry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:minHeight="@dimen/min_item_height"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sizeLabel"
+            app:layout_constraintTop_toBottomOf="@id/companyEntry"
+            tools:text="9.5" />
+
+        <TextView
+            android:id="@+id/descLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/min_label_width"
+            android:text="@string/description_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/descEntry" />
+
+        <EditText
+            android:id="@+id/descEntry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:minHeight="@dimen/min_item_height"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/descLabel"
+            app:layout_constraintTop_toBottomOf="@id/sizeEntry"
+            tools:text="Purple and orange. Used for OTF" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
