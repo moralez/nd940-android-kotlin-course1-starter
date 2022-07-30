@@ -30,4 +30,8 @@ data class Shoe(
 
         return true
     }
+
+    companion object {
+        fun emptyShoe() = Shoe("", 0.0, "", "", Date())
+    }
 }
